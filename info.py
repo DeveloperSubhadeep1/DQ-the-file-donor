@@ -12,24 +12,29 @@ def is_enabled(value, default):
         return default
 
 # Bot information
+# SESSION = environ.get('SESSION', 'Media_search')
+# API_ID = int(environ['API_ID'])
+# API_HASH = environ['API_HASH']
+# BOT_TOKEN = environ['BOT_TOKEN']
+
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ.get('API_ID','27972068'))
+API_HASH = environ.get('API_HASH','6e7e2f5cdddba536b8e603b3155223c1')
+BOT_TOKEN = environ.get('BOT_TOKEN','7145642010:AAHvXsYsJdnT87Ib_DOl-iRBq3YO7ons9Mk')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = is_enabled((environ.get('USE_CAPTION_FILTER', 'True')), True)
 
-PICS = (environ.get('PICS', 'https://telegra.ph/file/6a0726f79acd8300e9a04.jpg https://telegra.ph/file/68289fefb76dbc43b766d.jpg https://telegra.ph/file/0caad29c0cf91c23fb1b6.jpg https://telegra.ph/file/8c34c755dd16581c1c6b5.jpg https://telegra.ph/file/365e35b554e5a3ea83857.jpg https://telegra.ph/file/07f185825c5b7bfd6fbfb.jpg https://telegra.ph/file/85f95494565a762edb3e7.jpg https://telegra.ph/file/708a1d6ce805fcc6a46d0.jpg https://telegra.ph/file/d799c1a964f211028cc97.jpg https://telegra.ph/file/b987425b80bca0cf45c7e.jpg https://telegra.ph/file/2a8b3779760289b76de24.jpg https://telegra.ph/file/47961be968719b3e24cf0.jpg https://telegra.ph/file/2e127b0f6b1810d733c09.jpg https://telegra.ph/file/281b18770a43a29120252.jpg https://telegra.ph/file/2086dd2aa8382e758a599.jpg https://telegra.ph/file/fcc849db4bf5c517f0f8d.jpg')).split()
+PICS = (environ.get('PICS', 'https://graph.org/file/76c64c07eca831ccb54d5.jpg https://graph.org/file/f4d4cfc1ce9f459fab501.jpg https://graph.org/file/7f0693b9b6ab6139ddabb.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/46443096bc6895c74a716.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/451f038b4e7c2ddd10dc0.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/5e2d4418525832bc9a1b9.jpg")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5546051083 5256724194').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002114730289').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '5546051083').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
@@ -43,24 +48,24 @@ NO_RESULTS_MSG = is_enabled((environ.get("NO_RESULTS_MSG", 'False')), False)
 
 # MongoDB information
 SECONDDB_URI = environ.get('SECONDDB_URI', None)
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://test1:test1@cluster0.5vutvml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'False')), False)
 HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', "https://t.me/c/1845700490/3")
-VERIFY2_URL = environ.get('VERIFY2_URL', "mdisklink.link")
-VERIFY2_API = environ.get('VERIFY2_API', "4fa150d44b4bf6579c24b33bbbb786dbfb4fc673")
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'clicksfly.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', 'c2150e28189cefefd05f8a9c5c5770cc462033e3')
+VERIFY2_URL = environ.get('VERIFY2_URL', "zipshort.net")
+VERIFY2_API = environ.get('VERIFY2_API', "6ab0c6fc67b87a6751f299b0f7661ab44ff28a71")
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'zipshort.net')
+SHORTLINK_API = environ.get('SHORTLINK_API', '6ab0c6fc67b87a6751f299b0f7661ab44ff28a71')
 IS_SHORTLINK = is_enabled((environ.get('IS_SHORTLINK', 'False')), False)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "5")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
 PORT = environ.get("PORT", "8080")
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+GOFte-Rz2tcxODg1')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/+mCMdCb_ymAowZmNl')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/searchyourmovie69')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/updatechannelfordevil')
 MSG_ALRT = environ.get('MSG_ALRT', 'Wʜᴀᴛ Aʀᴇ Yᴏᴜ Lᴏᴏᴋɪɴɢ Aᴛ ?')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'DQ_The_File_Donor_Support')
